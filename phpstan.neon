@@ -1,0 +1,13 @@
+includes:
+	- phpstan-baseline.neon
+
+parameters:
+	level: 9
+	paths:
+		- src
+		- tests
+	treatPhpDocTypesAsCertain: false
+	cognitive_complexity:
+		class: 30
+		function: 6
+	tmpDir: var/tmp/phpstan

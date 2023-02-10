@@ -1,0 +1,55 @@
+{
+    "name": "remi-san/symfony-http-client-extended",
+    "description": "Symfony http client extended",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "beberlei/assert": "^3.3.2",
+        "beste/clock": "^3.0",
+        "symfony/http-client": "^6.2"
+    },
+    "require-dev": {
+        "php-project/fluent": "dev-main",
+        "roave/security-advisories": "dev-latest",
+        "friendsofphp/php-cs-fixer": "^3.13",
+        "mockery/mockery": "^1.5",
+        "phpmetrics/phpmetrics": "^2.8",
+        "phpstan/extension-installer": "^1.2",
+        "phpstan/phpdoc-parser": "^1.14",
+        "phpstan/phpstan": "^1.9.2",
+        "phpstan/phpstan-beberlei-assert": "^1.0.1",
+        "phpstan/phpstan-deprecation-rules": "^1.1",
+        "phpstan/phpstan-mockery": "^1.1",
+        "phpstan/phpstan-phpunit": "^1.2",
+        "phpstan/phpstan-strict-rules": "^1.4",
+        "phpstan/phpstan-symfony": "^1.2",
+        "phpunit/phpunit": "^10.0",
+        "rector/rector": "^0.15.1",
+        "sebastian/diff": "5.0 as 4.0.4",
+        "tomasvotruba/cognitive-complexity": "^0.0.5"
+    },
+    "config": {
+        "platform": {
+            "php": "8.2.1"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Symfony\\Component\\HttpClient\\Extended\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Symfony\\Component\\HttpClient\\Extended\\Tests\\": "tests/unit/",
+            "Symfony\\Component\\HttpClient\\Extended\\Tests\\Helper\\": "tests/helper/"
+        }
+    }
+}

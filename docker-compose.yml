@@ -1,0 +1,11 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  php:
+    image: remisan/php
+    restart: 'no'
+    volumes:
+      - .:/app:delegated
+    working_dir: /app
+    environment:
+      - "PHP_CS_FIXER_IGNORE_ENV=1"

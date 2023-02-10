@@ -1,0 +1,28 @@
+name: Symfony HTTP client Extended
+
+on: [push]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run composer
+        uses: php-actions/composer@v6
+      - name: Start containers
+        run: docker compose -f "docker-compose.yml" up -d
+      - name: Run Rector
+        run: docker compose run php vendor/bin/rector process --dry-run --ansi
+      - name: Run CheckStyle
+        run: docker compose run php vendor/bin/php-cs-fixer fix --dry-run --ansi
+      - name: Run PhpStan
+        uses: php-actions/phpstan@v3
+        with:
+          memory_limit: -1
+      - name: Run phpunit tests
+        run: docker compose run --rm php vendor/bin/phpunit
+      - name: Stop containers
+        if: always()
+        run: docker compose -f "docker-compose.yml" down
